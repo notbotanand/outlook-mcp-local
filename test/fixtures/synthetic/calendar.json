@@ -1,0 +1,22 @@
+[
+  {
+    "eventRef": "event_1",
+    "subject": "Contoso interview prep",
+    "startDateTime": "2026-06-06T10:00:00-07:00",
+    "endDateTime": "2026-06-06T11:00:00-07:00",
+    "location": "Home office",
+    "organizer": "alex.johnson@example.com",
+    "bodyPreview": "Prepare notes for Contoso conversation.",
+    "bodyReturned": false
+  },
+  {
+    "eventRef": "event_2",
+    "subject": "Fabrikam onboarding design review",
+    "startDateTime": "2026-06-06T14:00:00-07:00",
+    "endDateTime": "2026-06-06T15:00:00-07:00",
+    "location": "Virtual",
+    "organizer": "coordinator@example.com",
+    "bodyPreview": "Review synthetic onboarding design topics.",
+    "bodyReturned": false
+  }
+]

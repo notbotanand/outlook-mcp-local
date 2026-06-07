@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+coverage/
+.nyc_output/
+
+# Local env/config
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Token/cache/state files
+tokens/
+.token-cache/
+.cache/
+.local-state/
+.msal-cache/
+*.token
+*.tokens.json
+*refresh*token*
+*access*token*
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Real/private fixtures and screenshots
+fixtures/private/
+test/fixtures/private/
+screenshots/
+*.har
+
+# Temporary public export
+.public-export/
+release-export/

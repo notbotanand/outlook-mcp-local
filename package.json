@@ -1,0 +1,27 @@
+{
+  "name": "outlook-mcp-local",
+  "version": "0.0.0",
+  "private": false,
+  "description": "Local-first stdio MCP connector for personal Outlook.com mail and calendar.",
+  "type": "module",
+  "bin": {
+    "outlook-mcp-local": "./dist/src/cli/main.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "setup": "npm run build && node dist/src/cli/setup.js",
+    "server": "node dist/src/index.js",
+    "doctor": "npm run build && node dist/src/cli/doctor.js",
+    "reset-local": "npm run build && node dist/src/cli/resetLocal.js",
+    "test": "npm run build && node --test \"dist/test/**/*.test.js\"",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.4.0"
+  }
+}

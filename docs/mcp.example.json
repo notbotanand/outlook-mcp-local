@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "outlook-mcp-local": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["/absolute/path/to/outlook-mcp-local/dist/src/index.js"],
+      "env": {}
+    }
+  }
+}
