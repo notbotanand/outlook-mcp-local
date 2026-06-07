@@ -1,6 +1,10 @@
 import { type GraphClient } from "../graph/client.js";
-import { emailContentWarning } from "./constants.js";
-import { htmlToText } from "./sanitizer.js";
+import {
+  emailContentWarning,
+  untrustedEmailBodyPrefix,
+  untrustedEmailBodySuffix
+} from "./constants.js";
+import { htmlToText, sanitizeText } from "./sanitizer.js";
 import { type MailMetadata, type ReadMailResult } from "./types.js";
 
 type GraphMailResponse = {
@@ -97,7 +101,7 @@ export class GraphMailService {
       to: (message.toRecipients ?? []).map(formatRecipient),
       cc: (message.ccRecipients ?? []).map(formatRecipient),
       receivedDateTime: message.receivedDateTime ?? "",
-      bodyText: bodyToText(message.body),
+      bodyText: wrapUntrustedEmailBody(bodyToText(message.body)),
       attachments: (message.attachments ?? []).map((attachment) => ({
         name: attachment.name ?? "",
         contentType: attachment.contentType ?? "",
@@ -160,5 +164,9 @@ function bodyToText(body: GraphMessage["body"]): string {
     return htmlToText(content);
   }
 
-  return content;
+  return sanitizeText(content);
+}
+
+function wrapUntrustedEmailBody(bodyText: string): string {
+  return `${untrustedEmailBodyPrefix}\n${bodyText}\n${untrustedEmailBodySuffix}`;
 }

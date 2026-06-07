@@ -1,5 +1,6 @@
 export function htmlToText(input: string): string {
-  return decodeHtmlEntities(
+  return sanitizeText(
+    decodeHtmlEntities(
     input
       .replace(/<script[\s\S]*?<\/script>/gi, "")
       .replace(/<style[\s\S]*?<\/style>/gi, "")
@@ -8,7 +9,12 @@ export function htmlToText(input: string): string {
       .replace(/<[^>]+>/g, "")
       .replace(/\n{3,}/g, "\n\n")
       .trim()
+    )
   );
+}
+
+export function sanitizeText(input: string): string {
+  return input.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "");
 }
 
 function decodeHtmlEntities(input: string): string {

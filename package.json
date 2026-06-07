@@ -14,7 +14,8 @@
     "doctor": "npm run build && node dist/src/cli/doctor.js",
     "reset-local": "npm run build && node dist/src/cli/resetLocal.js",
     "test": "npm run build && node --test \"dist/test/**/*.test.js\"",
-    "lint": "tsc -p tsconfig.json --noEmit"
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "audit": "npm audit --omit=dev"
   },
   "engines": {
     "node": ">=20"

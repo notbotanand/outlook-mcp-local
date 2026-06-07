@@ -16,6 +16,7 @@ npm run setup
 
 3. Let the human complete Microsoft app registration and PKCE browser auth when prompted.
    The setup wizard displays the redirect URI to register. Do not choose a different redirect URI unless intentionally using `OUTLOOK_MCP_REDIRECT_URI` as an advanced override.
+   See [setup-microsoft-app.md](setup-microsoft-app.md) for exact Microsoft portal settings.
 4. Run:
 
 ```bash

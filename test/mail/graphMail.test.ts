@@ -51,7 +51,7 @@ describe("GraphMailService", () => {
     assert.equal("bodyText" in listed.results[0], false);
 
     const read = await service.readMail({ messageRef: "msg_1" });
-    assert.equal(read.bodyText, "Synthetic body");
+    assert.equal(read.bodyText, "<untrusted_email_body>\nSynthetic body\n</untrusted_email_body>");
     assert.equal(read.attachments[0].name, "agenda.txt");
     assert.deepEqual(calls, ["/me/messages", "/me/messages/graph-message-1"]);
   });

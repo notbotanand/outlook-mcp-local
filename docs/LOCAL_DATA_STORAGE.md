@@ -45,6 +45,8 @@ Access tokens are kept in process memory and refreshed when needed.
 
 On platforms without a configured OS token store, the current fallback is process memory.
 
+Windows and Linux durable token persistence are not supported yet. On those platforms, authentication state may not persist across server restarts. OS-native credential storage for Windows Credential Manager and Linux Secret Service is planned for a later version.
+
 ## Mail and Calendar Data
 
 Search/list tools return metadata first.
@@ -68,6 +70,14 @@ npm run reset-local
 ```
 
 The reset command clears the local token store and can optionally remove `.env`. It does not modify Outlook mailbox or calendar data.
+
+## Dependency Checks
+
+Run dependency audit checks before release:
+
+```bash
+npm run audit
+```
 
 ## Threat Model Notes
 
